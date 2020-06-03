@@ -8,5 +8,72 @@
 
 import Foundation
 
-print("Hello, World!")
+let alph = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+var new_alph = alph
+
+
+func getIndex(symbol: String) -> Int {
+    for j in 0..<alph.count {
+        if (alph[j] == symbol) {
+            return j
+        }
+    }
+    return 0
+}
+
+func encrypt() {
+    
+    print("Enter key:")
+    let key = Int(readLine()!)!
+
+    print("Enter message:")
+    var message = Array(String(readLine()!).uppercased())
+    print("----------------------------------------------------------------------------------------------------------------------------------")
+    
+    for i in 0..<message.count {
+        if (message[i] == " " || message[i] == "." || message[i] == "," || message[i] == "!" || message[i] == "?") { continue }
+        let index = getIndex(symbol: String(message[i]))
+        message[i] = Character(alph[(index + key) % alph.count])
+    }
+    
+    for item in 0...25 {
+        let index = getIndex(symbol: alph[item])
+        new_alph[index] = alph[(index + key) % alph.count]
+    }
+        
+    print(alph)
+    print(new_alph)
+    print("----------------------------------------------------------------------------------------------------------------------------------")
+    print("Resullt:")
+    print(String(message))
+    print("----------------------")
+}
+
+func decrypt() {
+    
+    print("Enter key:")
+    let key = Int(readLine()!)!
+
+    print("Enter message:")
+    var message = Array(String(readLine()!).uppercased())
+    print("----------------------------------------------------------------------------------------------------------------------------------")
+
+    for i in 0..<message.count {
+        if (message[i] == " " || message[i] == "." || message[i] == "," || message[i] == "!" || message[i] == "?") { continue }
+        let index = getIndex(symbol: String(message[i]))
+        message[i] = Character(alph[(index - key + alph.count) % alph.count])
+    }
+    
+    for item in 0...25 {
+        let index = getIndex(symbol: alph[item])
+        new_alph[index] = alph[(index + key) % alph.count]
+    }
+    
+    print(new_alph)
+    print(alph)
+    print("----------------------------------------------------------------------------------------------------------------------------------")
+    print("Resullt:")
+    print(String(message))
+    print("----------------------")
+}
 
