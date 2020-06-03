@@ -77,3 +77,41 @@ func decrypt() {
     print("----------------------")
 }
 
+func hack() {
+    
+    print("Enter message for hacking:")
+    let message = Array(String(readLine()!).uppercased())
+    print("----------------------")
+    
+    for shift in 1..<alph.count {
+        
+        var messageCopy = message
+        
+        for i in 0..<message.count {
+            if (message[i] == " " || message[i] == "." || message[i] == "," || message[i] == "!" || message[i] == "?") { continue }
+            let index = getIndex(symbol: String(message[i]))
+            messageCopy[i] = Character(alph[(index - shift + alph.count) % alph.count])
+        }
+        
+        print("With shift: \(shift)   \(String(messageCopy))")
+    }
+}
+
+
+
+
+
+print("Choose the command:\n1. Encrypt\n2. Decrypt\n3. Hack")
+print("-----------------------")
+let i = Int(readLine()!)!
+
+switch i {
+    case 1:
+        encrypt()
+    case 2:
+        decrypt()
+    case 3:
+        hack()
+    default:
+        print("You entered the wrong command")
+}
