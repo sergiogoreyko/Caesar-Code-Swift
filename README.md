@@ -1,7 +1,8 @@
-![Снимок экрана 2021-04-15 в 22 01 54](https://user-images.githubusercontent.com/63499146/114924051-3506e900-9e36-11eb-9066-34984206849c.png)
 # Caesar-Code-Swift
 
 ## Caesar cipher implementation on Swift
+
+![Снимок экрана 2021-04-15 в 21 30 06](https://user-images.githubusercontent.com/63499146/114924607-d9892b00-9e36-11eb-895b-9f08fed44580.png)
 
 *Enter "1" to encrypt your message*
 ![Снимок экрана 2021-04-15 в 21 58 19](https://user-images.githubusercontent.com/63499146/114923698-cde93480-9e35-11eb-871b-0cd13d8af83e.png)
